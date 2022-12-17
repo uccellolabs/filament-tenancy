@@ -44,6 +44,24 @@ class ListUsers extends ListRecords
 }
 ```
 
+## Usage
+
+```php
+use Uccellolabs\FilamentTenancy\Support\Traits\CurrentTenant;
+
+```
+
+Add a column named `tenant_id` in your table and add the following code in your Model:
+
+```php
+use Uccellolabs\FilamentTenancy\Support\Traits\BelongsToTenant;
+
+class YourModel extends Model
+{
+    use BelongsToTenant;
+}
+```
+
 ## Credits
 
 -   [Uccellolabs](https://github.com/uccellolabs)
