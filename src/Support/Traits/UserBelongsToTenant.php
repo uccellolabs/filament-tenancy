@@ -11,7 +11,6 @@ trait UserBelongsToTenant
 
     public static function bootUserBelongsToTenant()
     {
-
         if (!app()->runningInConsole()) { // Deactivate for console
             // Attach to current tenant id
             static::created(function ($model) {
@@ -26,8 +25,8 @@ trait UserBelongsToTenant
         return $this->belongsToMany(Tenant::class);
     }
 
-    public function lastTenant()
+    public function currentTenant()
     {
-        return $this->belongsTo(Tenant::class, 'last_tenant_id');
+        return $this->belongsTo(Tenant::class, 'current_tenant_id');
     }
 }

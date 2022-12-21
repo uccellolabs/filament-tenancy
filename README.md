@@ -23,6 +23,11 @@ use Uccellolabs\FilamentTenancy\Support\Traits\UserBelongsToTenant;
 class User extends Authenticatable
 {
     use UserBelongsToTenant;
+
+    protected $fillable = [
+        // ...
+        'current_tenant_id',
+    ];
 }
 ```
 
@@ -64,7 +69,7 @@ class YourModel extends Model
 
 ## Credits
 
--   [Uccellolabs](https://github.com/uccellolabs)
+- [Uccellolabs](https://github.com/uccellolabs)
 
 ## License
 

@@ -12,7 +12,7 @@ class SwitchFilamentTenant extends Component
 
     public function changeTenant($tenantId)
     {
-        auth()->user()->update(['last_tenant_id' => $tenantId]);
+        auth()->user()->update(['current_tenant_id' => $tenantId]);
 
         $this->redirect(request()->header('Referer'));
     }

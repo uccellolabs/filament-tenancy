@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->foreignId('last_tenant_id')->nullable()->after('id')->constrained();
+        Schema::table('users', function (Blueprint $table) {
+            $table->unsignedBigInteger('current_tenant_id')->nullable()->after('id');
+            $table->foreign('current_tenant_id')->references('id')->on('tenants');
         });
     }
 
@@ -25,9 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->dropForeign('users_last_tenant_id_foreign');
-            $table->dropColumn('last_tenant_id');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign('users_current_tenant_id_foreign');
+            $table->dropColumn('current_tenant_id');
         });
     }
 };

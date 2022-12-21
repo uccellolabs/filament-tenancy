@@ -14,7 +14,8 @@ class FilamentTenancyProvider extends PluginServiceProvider
     {
         $package->name(static::$name)
             ->hasViews()
-            ->hasMigrations('create_tenants_table', 'create_tenant_user_table', 'alter_users_table');
+            ->hasMigrations(['create_tenants_table', 'create_tenant_user_table', 'alter_users_table'])
+            ->runsMigrations();
     }
 
     public function packageBooted(): void

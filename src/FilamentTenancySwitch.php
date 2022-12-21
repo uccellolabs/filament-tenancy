@@ -22,7 +22,7 @@ class FilamentTenancySwitch
     {
         Livewire::component('switch-filament-tenant', Http\Livewire\SwitchFilamentTenant::class);
         Filament::registerRenderHook(
-            'global-search.end',
+            'global-search.start',
             fn (): string => Blade::render("@livewire('switch-filament-tenant')")
         );
     }
